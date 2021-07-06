@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { SearchIcon } from '@heroicons/react/outline'
 
-export default function Header() {
+export default function Header({ handleSearch, query, setQuery }) {
   return (
     <nav className='header flex p-2 justify-center'>
       <div className='w-1/12 mr-1'>
@@ -11,15 +11,23 @@ export default function Header() {
           width={134}
           height={34}
           layout='fixed'
+          value={query}
         />
       </div>
-      <div className='flex items-center w-4/12 ml-2 border rounded-sm bg-gray-100 p-2 shadow'>
-        <input
-          className='flex mr-2 w-full border-r bg-transparent outline-none placeholder-gray-400'
-          type='text'
-          placeholder='Buscar productos, marcas y mas...'
-        />
-        <SearchIcon className='h-6 text-gray-400' />
+      <div className='w-4/12 ml-2 border rounded-sm bg-gray-100 p-2 shadow'>
+        <form onSubmit={handleSearch} className='flex items-center'>
+          <input
+            className='flex mr-2 w-full border-r bg-transparent outline-none placeholder-gray-400'
+            type='text'
+            placeholder='Buscar productos, marcas y mas...'
+            onChange={e => setQuery(e.target.value)}
+            value={query}
+          />
+          <SearchIcon
+            onClick={handleSearch}
+            className='h-6 text-gray-400'
+          />
+        </form>
       </div>
       <div>
         <Image
