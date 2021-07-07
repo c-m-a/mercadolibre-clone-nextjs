@@ -3,7 +3,7 @@ import { SearchIcon } from '@heroicons/react/outline'
 
 export default function Header({ handleSearch, query, setQuery }) {
   return (
-    <nav className='header flex p-2 justify-center'>
+    <nav className='header sticky top-0 flex p-2 justify-center'>
       <div className='w-1/12 mr-1'>
         <Image
           className='align-middle'
