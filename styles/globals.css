@@ -4,4 +4,5 @@
 
 .header {
   background-color: #fff159;
+  z-index: 10;
 }
